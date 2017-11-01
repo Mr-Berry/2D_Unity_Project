@@ -6,12 +6,7 @@ public abstract class GameState {
 		m_gm = gm;
 	}
 	public GameObject m_state;
-
 	public abstract void Enter ();
 	public abstract void Execute ();
 	public abstract void Exit ();
-
-	// public void QuitGame() {
-	// 	Application.Quit();
-	// }
 }

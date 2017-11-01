@@ -27,4 +27,8 @@ public class MainMenuManager : MonoBehaviour {
 		m_currentState = m_menuStates.MENU;
 		m_menuObjs[(int)m_currentState].SetActive(true);		
 	}
+
+	public void SaveInventory() {
+		
+	}
 }

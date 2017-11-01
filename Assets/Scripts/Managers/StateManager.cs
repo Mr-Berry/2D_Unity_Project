@@ -35,4 +35,8 @@ public class StateManager : MonoBehaviour {
 			m_stateObjs[i].SetActive(false);
 		}
 	}
+
+	public void QuitGame() {
+		Application.Quit();
+	}
 }
