@@ -39,4 +39,8 @@ public class StateManager : MonoBehaviour {
 	public void QuitGame() {
 		Application.Quit();
 	}
+
+	public void Test() {
+		Debug.Log("Hello");
+	}
 }
