@@ -22,7 +22,8 @@ GameObject:
   - component: {fileID: 212905105684181302}
   - component: {fileID: 50982086090380574}
   - component: {fileID: 61784880421681480}
-  - component: {fileID: 114142592374865406}
+  - component: {fileID: 114142592374865406, guid: 350dd871a1fedc04aa53e9843af214eb,
+      type: 2}
   - component: {fileID: 114734123692926536}
   - component: {fileID: 114672602542464824}
   m_Layer: 0
@@ -90,18 +91,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.92, y: 1.86}
   m_EdgeRadius: 0
---- !u!114 &114142592374865406
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1367094405305112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6f9e35cd13be254f98c8a28f0f3b657, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_moveSpeed: 3
 --- !u!114 &114672602542464824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -137,22 +126,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 241
-    i1: 34
-    i2: 216
-    i3: 61
-    i4: 155
-    i5: 100
-    i6: 74
-    i7: 212
-    i8: 233
-    i9: 34
-    i10: 149
-    i11: 38
-    i12: 93
-    i13: 183
-    i14: 252
-    i15: 100
+    i0: 160
+    i1: 229
+    i2: 160
+    i3: 235
+    i4: 24
+    i5: 204
+    i6: 192
+    i7: 164
+    i8: 105
+    i9: 101
+    i10: 22
+    i11: 234
+    i12: 214
+    i13: 67
+    i14: 1
+    i15: 19
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
 --- !u!212 &212905105684181302

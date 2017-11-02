@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum m_abilities{NONE, FIREBALL, S_VELOCIRAPTOR, SHIELD, NUM_ABILITIES};
+
 public class GameManager : MonoBehaviour {
 	public StateManager m_sm;
 	private GameState m_currentState;

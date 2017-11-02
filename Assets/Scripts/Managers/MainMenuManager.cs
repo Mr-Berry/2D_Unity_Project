@@ -6,7 +6,10 @@ public class MainMenuManager : MonoBehaviour {
 
 	private enum m_menuStates { MENU, BANK_EDITOR, NUM_STATES };
 	public GameObject[] m_menuObjs;
+	public Transform m_abilityImagePoint;
 	private m_menuStates m_currentState = m_menuStates.MENU;
+	private List<m_abilities> m_playerBank = new List<m_abilities>();
+	private int m_counter = 0;
 
 	public void InitStates() {
 		for (int i = 0; i < (int)m_menuStates.NUM_STATES; i++) {
@@ -30,5 +33,9 @@ public class MainMenuManager : MonoBehaviour {
 
 	public void SaveInventory() {
 		
+	}
+
+	public void InitAbilityBank() {
+
 	}
 }
