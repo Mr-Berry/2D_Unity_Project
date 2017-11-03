@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 114118798594498786}
   - component: {fileID: 114626458459898090}
   - component: {fileID: 114244713262537156}
+  - component: {fileID: 114114575529203196}
   m_Layer: 0
   m_Name: AbilityBox
   m_TagString: Untagged
@@ -140,6 +141,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114114575529203196
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1863832778821620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6dec1d37eca26640b0f01c1e8a8d0a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_isFlying: 0
+  m_speed: 0
 --- !u!114 &114118798594498786
 MonoBehaviour:
   m_ObjectHideFlags: 1

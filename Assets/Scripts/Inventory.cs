@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour {
 	private List<Ability> m_usedPool = new List<Ability>();
 	public List<Ability> m_abilityPool = new List<Ability>();
+	public GameObject abilityBox;
+	private List<GameObject> m_abilityBoxes = new List<GameObject>();
+	private const short NUMABILITIES = 15;
 
 	void Start() {
 		foreach (Ability ability in m_abilityPool) {
@@ -15,7 +19,7 @@ public class Inventory : MonoBehaviour {
 	public bool CanPlaceMore(short type) {
 		bool retVal = true;
 		short count = 0;
-		for (int i = 0; i < m_abilityPool.Count; i++) {
+		for (int i = 0; i < NUMABILITIES; i++) {
 			if (m_abilityPool[i].m_type == type) {
 				count++;
 				if (count == 3) {
@@ -39,9 +43,9 @@ public class Inventory : MonoBehaviour {
 	}
 
 	public void RemoveAndSort(Ability abilityToRemove) {
-		for (int i = 0; i < m_abilityPool.Count; i++) {
+		for (int i = 0; i < NUMABILITIES; i++) {
 			if (m_abilityPool[i] == abilityToRemove) {
-				for (int j = i; j < m_abilityPool.Count; j++) {
+				for (int j = i; j < NUMABILITIES; j++) {
 					if (j == 14 || m_abilityPool[j].m_type == 0) {
 						m_abilityPool[j].ChangeType((int)m_abilities.NONE);
 						break;
@@ -61,14 +65,22 @@ public class Inventory : MonoBehaviour {
 	}
 
 	private void LoadInventory() {
-		for (int i = 0; i < m_abilityPool.Count; i++) {
+		for (int i = 0; i < NUMABILITIES; i++) {
 			m_abilityPool[i].ChangeType((short)PlayerPrefs.GetInt("Inventory_"+i));
 		}
 	}
 
 	public void SaveInventory() {
-		for (int i = 0; i < m_abilityPool.Count; i++) {
+		for (int i = 0; i < NUMABILITIES; i++) {
 			PlayerPrefs.SetInt( "Inventory_"+i, m_abilityPool[i].m_type);
 		}
 	} 
+
+	public void CreateInventory() {
+		for (int i = 0; i < NUMABILITIES; i++) {
+			m_abilityBoxes[i] = Instantiate(abilityBox);
+			m_abilityPool[i] = m_abilityBoxes[i].GetComponent<Ability>();
+		}
+		LoadInventory();
+	}
 }
