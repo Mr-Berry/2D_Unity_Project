@@ -6,7 +6,6 @@ public class MainMenuManager : MonoBehaviour {
 
 	private enum m_menuStates { MENU, BANK_EDITOR, NUM_STATES };
 	public GameObject[] m_menuObjs;
-	public Transform m_abilityImagePoint;
 	private m_menuStates m_currentState = m_menuStates.MENU;
 	private List<m_abilities> m_playerBank = new List<m_abilities>();
 	private int m_counter = 0;
@@ -23,6 +22,7 @@ public class MainMenuManager : MonoBehaviour {
 		m_menuObjs[(int)m_currentState].SetActive(false);
 		m_currentState = m_menuStates.BANK_EDITOR;
 		m_menuObjs[(int)m_currentState].SetActive(true);
+		m_menuObjs[(int)m_currentState].GetComponent<BankManager>().InitInventory();
 	}
 
 	public void MainMenuState() {

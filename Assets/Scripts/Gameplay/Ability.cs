@@ -9,7 +9,7 @@ public class Ability : MonoBehaviour {
 	private Image m_img;
 	public bool m_inPlayMode = true;
 	[HideInInspector]
-	public short m_type;
+	public short m_type = 0;
 	public Inventory m_Inventory { get; set; }
 
 	void Start() {
@@ -19,6 +19,7 @@ public class Ability : MonoBehaviour {
 
 	public void ChangeType(short index) {
 		m_type = index;
+		Debug.Log(m_type);
 		m_img.sprite = m_sprites[m_type];
 	}
 

@@ -51,4 +51,24 @@ public class Inventory : MonoBehaviour {
 			}
 		}
 	}
+
+	public void Initialize() {
+		if (PlayerPrefs.HasKey("Inventory_0")) {
+			LoadInventory();	
+		} else {
+			SaveInventory();
+		}
+	}
+
+	private void LoadInventory() {
+		for (int i = 0; i < m_abilityPool.Count; i++) {
+			m_abilityPool[i].ChangeType((short)PlayerPrefs.GetInt("Inventory_"+i));
+		}
+	}
+
+	public void SaveInventory() {
+		for (int i = 0; i < m_abilityPool.Count; i++) {
+			PlayerPrefs.SetInt( "Inventory_"+i, m_abilityPool[i].m_type);
+		}
+	} 
 }
