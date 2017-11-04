@@ -14,6 +14,9 @@ public class Movement : MonoBehaviour {
 		if (transform.position.x < 0) {
 			m_facingRight = true;
 		}
+		if (!m_facingRight) {
+			transform.Rotate(new Vector2(0,180));
+		}
 		if (transform.position.x == 0) {
 			Debug.Log("object at zeroed X position");
 		}
