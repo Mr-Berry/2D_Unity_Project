@@ -26,7 +26,9 @@ public class AnimationController : MonoBehaviour {
 	}
 
 	private void HandleDeathAnim() {
-
+		if (m_health.m_isDead) {
+			m_anim.SetBool("isDead", true);
+		}
 	}
 
 	private void HandleMovementAnim() {

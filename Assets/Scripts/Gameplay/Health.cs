@@ -5,21 +5,14 @@ using UnityEngine;
 public class Health : MonoBehaviour {
 
 	public short m_maxHealth;
-	public bool m_hasDeathAnimation;
 	public bool m_isPlayer;
 	public string m_editorComment;
-
 	private short m_currentHealth;
-	private Animation m_deathAnimation;
-	private bool m_isDead { get; set; }
+	public bool m_isDead { get; set; }
 
 	void Start () {
 		m_currentHealth = m_maxHealth;
 		m_isDead = false;
-		if(m_hasDeathAnimation) {
-			// get the death animation here
-			//m_deathAnimation = GetComponent<>();
-		}
 	}
 
 	public void TakeDamage(short damage) {
@@ -28,7 +21,7 @@ public class Health : MonoBehaviour {
 	}
 
 	void Update() {
-		Debug.Log(name + " " + m_currentHealth);
+
 	}
 
 	private void CheckIsDead() {
@@ -37,7 +30,7 @@ public class Health : MonoBehaviour {
 			if(m_isPlayer) {
 				// switch to lose state
 			} else {
-				Destroy(this.gameObject);
+
 			}
 		}
 	}

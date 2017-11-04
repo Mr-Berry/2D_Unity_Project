@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour {
 	private static GameManager m_instance = null;
 
 	void Awake () {
+//		PlayerPrefs.DeleteAll();
 		if (m_instance != null && m_instance != this) {
 			Destroy(this.gameObject);
 			return;

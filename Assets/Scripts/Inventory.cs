@@ -10,7 +10,7 @@ public class Inventory : MonoBehaviour {
 	private List<GameObject> m_abilityBoxes = new List<GameObject>();
 	private const short NUMABILITIES = 15;
 
-	void Start() {
+	void Awake() {
 		foreach (Ability ability in m_abilityPool) {
 			ability.m_Inventory = this;
 		}
@@ -58,8 +58,10 @@ public class Inventory : MonoBehaviour {
 
 	public void Initialize() {
 		if (PlayerPrefs.HasKey("Inventory_0")) {
+			Debug.Log("loading");
 			LoadInventory();	
 		} else {
+			Debug.Log("Saving");
 			SaveInventory();
 		}
 	}
@@ -67,6 +69,7 @@ public class Inventory : MonoBehaviour {
 	private void LoadInventory() {
 		for (int i = 0; i < NUMABILITIES; i++) {
 			m_abilityPool[i].ChangeType((short)PlayerPrefs.GetInt("Inventory_"+i));
+			Debug.Log(PlayerPrefs.GetInt("Inventory_"+i));
 		}
 	}
 

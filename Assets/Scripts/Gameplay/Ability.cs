@@ -12,14 +12,19 @@ public class Ability : MonoBehaviour {
 	public short m_type = 0;
 	public Inventory m_Inventory { get; set; }
 
-	void Start() {
+	void Awake() {
 		m_img = GetComponent<Image>();
 		m_img.sprite = m_sprites[(int)m_abilities.NONE];
 	}
 
+	void Start() {
+
+	}
+
 	public void ChangeType(short index) {
+		Debug.Log(name + " " + index);
 		m_type = index;
-		Debug.Log(m_type);
+		Debug.Log(m_sprites[m_type].name);
 		m_img.sprite = m_sprites[m_type];
 	}
 
