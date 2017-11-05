@@ -10,7 +10,8 @@ public class Ability : MonoBehaviour {
 	public bool m_inPlayMode = true;
 	[HideInInspector]
 	public short m_type = 0;
-	public Inventory_UI m_Inventory { get; set; }
+	public Inventory_UI m_Inventory;
+	public Inventory_Ingame m_IngameInventory;
 
 	void Awake() {
 		m_img = GetComponent<Image>();
@@ -22,32 +23,13 @@ public class Ability : MonoBehaviour {
 	}
 
 	public void ChangeType(short index) {
-		Debug.Log(name + " " + index);
 		m_type = index;
-		Debug.Log(m_sprites[m_type].name);
 		m_img.sprite = m_sprites[m_type];
 	}
 
 	public void Activate() {
 		if (m_inPlayMode) {
-			//click it and it does this
-			switch (m_type) {
-				case 0:
-					Debug.Log("Default type of nothing");
-				break;
-				case 1:
-					//Fireballs here
-				break;
-				case 2:
-					//Summon here
-				break;
-				case 3:
-					//Shield here
-				break;
-				default:
-					Debug.Log("Unknown type");
-				break;
-			}
+			m_IngameInventory.ActivateAbility(this);
 		} else {
 			m_Inventory.RemoveAndSort(this);
 		}
