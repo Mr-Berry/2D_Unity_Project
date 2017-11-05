@@ -10,7 +10,7 @@ public class Ability : MonoBehaviour {
 	public bool m_inPlayMode = true;
 	[HideInInspector]
 	public short m_type = 0;
-	public Inventory m_Inventory { get; set; }
+	public Inventory_UI m_Inventory { get; set; }
 
 	void Awake() {
 		m_img = GetComponent<Image>();

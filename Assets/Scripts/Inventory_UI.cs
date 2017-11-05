@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Inventory : MonoBehaviour {
+public class Inventory_UI : MonoBehaviour {
 	private List<Ability> m_usedPool = new List<Ability>();
 	public List<Ability> m_abilityPool = new List<Ability>();
 	public GameObject abilityBox;

@@ -27,8 +27,11 @@ GameObject:
   - component: {fileID: 114945444549658382}
   - component: {fileID: 114836492026051052}
   - component: {fileID: 114540283790812772}
+  - component: {fileID: 114242065977312180}
+  - component: {fileID: 114268949568953364}
+  - component: {fileID: 114964324669579958}
   m_Layer: 0
-  m_Name: Velociraptor
+  m_Name: DragonWarrior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +44,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1344145193836108}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.32, y: 0.39, z: -6.2}
+  m_LocalPosition: {x: -2.15, y: 0, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,10 +79,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.049924046, y: -0.614808}
+  m_Offset: {x: 0.3864987, y: -0.614808}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -90,7 +93,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.63122433, y: 1.183843}
+  m_Size: {x: 1.3043737, y: 1.183843}
   m_EdgeRadius: 0
 --- !u!95 &95821016570068098
 Animator:
@@ -109,6 +112,59 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114242065977312180
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1344145193836108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 82
+    i1: 177
+    i2: 79
+    i3: 76
+    i4: 71
+    i5: 54
+    i6: 70
+    i7: 100
+    i8: 186
+    i9: 112
+    i10: 160
+    i11: 156
+    i12: 139
+    i13: 132
+    i14: 60
+    i15: 15
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
+--- !u!114 &114268949568953364
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1344145193836108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 2
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 3
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!114 &114283040915653138
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122,6 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_isFlying: 0
   m_speed: 1
+  m_isMoving: 1
 --- !u!114 &114540283790812772
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -159,8 +216,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_damage: 2
-  m_attackRate: 1
+  m_attackRate: 2
   m_isProjectile: 0
+  m_isAttacking: 0
+--- !u!114 &114964324669579958
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1344145193836108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 5
 --- !u!212 &212273023746742718
 SpriteRenderer:
   m_ObjectHideFlags: 1
