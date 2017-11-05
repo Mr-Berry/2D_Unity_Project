@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BankManager : MonoBehaviour {
 
-	public Inventory m_inventory;
+	public Inventory_UI m_inventory;
 
 	public void InitInventory() {
 		m_inventory.Initialize();

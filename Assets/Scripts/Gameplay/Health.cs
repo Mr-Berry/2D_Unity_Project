@@ -34,4 +34,8 @@ public class Health : MonoBehaviour {
 			}
 		}
 	}
+
+	public void DestroySelf() {
+		Destroy(this.gameObject);
+	}
 }
