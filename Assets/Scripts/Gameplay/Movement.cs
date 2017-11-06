@@ -5,7 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour {
 
 	public bool m_isFlying;
-	public short m_speed;
+	public float m_speed;
 	public bool m_isMoving = true;
 	public bool m_facingRight = false;
 	private Rigidbody2D m_rb;

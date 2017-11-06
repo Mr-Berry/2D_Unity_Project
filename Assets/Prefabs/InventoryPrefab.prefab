@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 224779530299037916}
   - component: {fileID: 114963424697813070}
   m_Layer: 0
-  m_Name: Inventory
+  m_Name: InventoryPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1602,6 +1602,8 @@ MonoBehaviour:
   - {fileID: 21300014, guid: 2b4793e50e706064da8d7fc6a6089856, type: 3}
   m_inPlayMode: 0
   m_type: 0
+  m_Inventory: {fileID: 0}
+  m_IngameInventory: {fileID: 0}
 --- !u!114 &114040145340727382
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1884,6 +1886,8 @@ MonoBehaviour:
   - {fileID: 21300014, guid: 2b4793e50e706064da8d7fc6a6089856, type: 3}
   m_inPlayMode: 0
   m_type: 0
+  m_Inventory: {fileID: 0}
+  m_IngameInventory: {fileID: 0}
 --- !u!114 &114086557315337676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1929,6 +1933,8 @@ MonoBehaviour:
   - {fileID: 21300014, guid: 2b4793e50e706064da8d7fc6a6089856, type: 3}
   m_inPlayMode: 0
   m_type: 0
+  m_Inventory: {fileID: 0}
+  m_IngameInventory: {fileID: 0}
 --- !u!114 &114113011794220526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2026,6 +2032,8 @@ MonoBehaviour:
   - {fileID: 21300014, guid: 2b4793e50e706064da8d7fc6a6089856, type: 3}
   m_inPlayMode: 0
   m_type: 0
+  m_Inventory: {fileID: 0}
+  m_IngameInventory: {fileID: 0}
 --- !u!114 &114131942111825958
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2310,6 +2318,8 @@ MonoBehaviour:
   - {fileID: 21300014, guid: 2b4793e50e706064da8d7fc6a6089856, type: 3}
   m_inPlayMode: 0
   m_type: 0
+  m_Inventory: {fileID: 0}
+  m_IngameInventory: {fileID: 0}
 --- !u!114 &114220084204661406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2355,6 +2365,8 @@ MonoBehaviour:
   - {fileID: 21300014, guid: 2b4793e50e706064da8d7fc6a6089856, type: 3}
   m_inPlayMode: 0
   m_type: 0
+  m_Inventory: {fileID: 0}
+  m_IngameInventory: {fileID: 0}
 --- !u!114 &114256668029090734
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2857,6 +2869,8 @@ MonoBehaviour:
   - {fileID: 21300014, guid: 2b4793e50e706064da8d7fc6a6089856, type: 3}
   m_inPlayMode: 0
   m_type: 0
+  m_Inventory: {fileID: 0}
+  m_IngameInventory: {fileID: 0}
 --- !u!114 &114445904434740268
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2956,6 +2970,8 @@ MonoBehaviour:
   - {fileID: 21300014, guid: 2b4793e50e706064da8d7fc6a6089856, type: 3}
   m_inPlayMode: 0
   m_type: 0
+  m_Inventory: {fileID: 0}
+  m_IngameInventory: {fileID: 0}
 --- !u!114 &114473628263758846
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3693,6 +3709,8 @@ MonoBehaviour:
   - {fileID: 21300014, guid: 2b4793e50e706064da8d7fc6a6089856, type: 3}
   m_inPlayMode: 0
   m_type: 0
+  m_Inventory: {fileID: 0}
+  m_IngameInventory: {fileID: 0}
 --- !u!114 &114672599271822374
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3738,6 +3756,8 @@ MonoBehaviour:
   - {fileID: 21300014, guid: 2b4793e50e706064da8d7fc6a6089856, type: 3}
   m_inPlayMode: 0
   m_type: 0
+  m_Inventory: {fileID: 0}
+  m_IngameInventory: {fileID: 0}
 --- !u!114 &114697314200383328
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3941,6 +3961,8 @@ MonoBehaviour:
   - {fileID: 21300014, guid: 2b4793e50e706064da8d7fc6a6089856, type: 3}
   m_inPlayMode: 0
   m_type: 0
+  m_Inventory: {fileID: 0}
+  m_IngameInventory: {fileID: 0}
 --- !u!114 &114731523402920728
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4040,6 +4062,8 @@ MonoBehaviour:
   - {fileID: 21300014, guid: 2b4793e50e706064da8d7fc6a6089856, type: 3}
   m_inPlayMode: 0
   m_type: 0
+  m_Inventory: {fileID: 0}
+  m_IngameInventory: {fileID: 0}
 --- !u!114 &114789292538282726
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4247,6 +4271,8 @@ MonoBehaviour:
   - {fileID: 21300014, guid: 2b4793e50e706064da8d7fc6a6089856, type: 3}
   m_inPlayMode: 0
   m_type: 0
+  m_Inventory: {fileID: 0}
+  m_IngameInventory: {fileID: 0}
 --- !u!114 &114877180473937676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4346,6 +4372,8 @@ MonoBehaviour:
   - {fileID: 21300014, guid: 2b4793e50e706064da8d7fc6a6089856, type: 3}
   m_inPlayMode: 0
   m_type: 0
+  m_Inventory: {fileID: 0}
+  m_IngameInventory: {fileID: 0}
 --- !u!114 &114903808912038818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4659,6 +4687,8 @@ MonoBehaviour:
   - {fileID: 21300014, guid: 2b4793e50e706064da8d7fc6a6089856, type: 3}
   m_inPlayMode: 0
   m_type: 0
+  m_Inventory: {fileID: 0}
+  m_IngameInventory: {fileID: 0}
 --- !u!222 &222018445211439284
 CanvasRenderer:
   m_ObjectHideFlags: 1

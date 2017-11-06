@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 114927634849129910}
   - component: {fileID: 50467218104165698}
   m_Layer: 10
-  m_Name: AbilityDeck
+  m_Name: AbilityDeckPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
