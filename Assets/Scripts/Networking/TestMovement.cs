@@ -37,7 +37,8 @@ public class TestMovement : NetworkBehaviour {
 
 	[Command]
 	public void CmdSpawnFireball() {
-		GameObject tmp = Instantiate(m_fireball, transform.position, Quaternion.identity);
+		Vector3 tmpVec = new Vector3(transform.position.x, transform.position.y, transform.position.z + 1);
+		GameObject tmp = Instantiate(m_fireball, tmpVec, Quaternion.identity);
 		NetworkServer.Spawn(tmp);
 	}
 }
