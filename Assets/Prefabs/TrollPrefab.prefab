@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64983a9cb3de01b40ae6842f9a3b6876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxHealth: 10
+  m_maxHealth: 30
   m_isPlayer: 0
   m_editorComment: 
 --- !u!114 &114945444549658382
@@ -215,8 +215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe16ef24bfb86a944850aaa33f17f2ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_damage: 2
-  m_attackRate: 2
+  m_damage: 10
+  m_attackRate: 3
   m_isProjectile: 0
   m_isAttacking: 0
 --- !u!212 &212273023746742718
