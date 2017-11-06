@@ -7,6 +7,7 @@ public enum m_costs{NONE = 0, FIREBALL = 1, DRAGONWAR = 2, TROLL = 5, YETI = 3}
 
 public class GameManager : MonoBehaviour {
 	public StateManager m_sm;
+	public bool m_isGameOver = false;
 	private GameState m_currentState;
 	public static GameManager Instance {get { return m_instance; } }
 	private static GameManager m_instance = null;

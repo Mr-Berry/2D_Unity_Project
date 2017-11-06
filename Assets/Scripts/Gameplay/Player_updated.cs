@@ -51,4 +51,14 @@ public class Player_updated : NetworkBehaviour {
 		m_abilityDeck.transform.position = newPos;
 		m_abilityDeck.transform.localScale /= transform.localScale.x;
 	}
+
+	void Update() {
+		if (GameManager.Instance.m_isGameOver) {
+
+		}
+	}
+
+	public void SetGameOver() {
+		GameManager.Instance.m_isGameOver = true;
+	}
 }
