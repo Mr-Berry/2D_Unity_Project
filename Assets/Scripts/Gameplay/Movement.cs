@@ -41,4 +41,12 @@ public class Movement : MonoBehaviour {
 	public void StartMovement() {
 		m_isMoving = true;
 	}
+
+	void OnTriggerEnter2D(Collider2D other) {
+		StopMovement();
+	}
+
+	void OnTriggerExit2D(Collider2D other) {
+		StartMovement();
+	}
 }

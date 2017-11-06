@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AbilitySelector : Ability {
 
-	public Inventory_UI m_Inventory;
 	public void IncrementType() {
 		m_type++;
 		m_type %= (int)m_abilities.NUM_ABILITIES;

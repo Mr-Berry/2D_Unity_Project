@@ -11,8 +11,8 @@ public class Inventory_UI : MonoBehaviour {
 	private const short NUMABILITIES = 15;
 
 	void Awake() {
-		foreach (Ability ability in m_abilityPool) {
-			ability.m_Inventory = this;
+		for (int i = 0; i < NUMABILITIES; i++) {
+			m_abilityPool[i].m_Inventory = this;
 		}
 	}
 

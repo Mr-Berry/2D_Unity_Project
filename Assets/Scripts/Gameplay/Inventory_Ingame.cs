@@ -26,16 +26,11 @@ public class Inventory_Ingame : MonoBehaviour {
 		for (int i = 0; i < NUMBOXES; i++) {
 			GameObject temp = Instantiate(m_abilityBox, m_startPositions[i]);
 			temp.transform.SetParent(m_creationPoint);
-			SetVelocity(temp);
 			m_abilities[i] = temp.GetComponent<Ability>();
 			m_abilities[i].m_IngameInventory = this;
 			ChangeBoxType(m_abilities[i]);
 			m_boxes[i] = temp;
 		}
-	}
-
-	private void SetVelocity(GameObject temp) {
-		temp.GetComponent<Rigidbody2D>().velocity = Vector2.left;
 	}
 
 	private void LoadPlayerPrefs() {
@@ -66,7 +61,6 @@ public class Inventory_Ingame : MonoBehaviour {
 
 	public void ActivateAbility(Ability ability) {
 		m_owner.SpawnType(ability.m_type);
-		SetVelocity(ability.gameObject);
 		RespawnBox(ability);
 	}
 }

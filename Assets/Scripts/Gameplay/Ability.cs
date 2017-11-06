@@ -7,9 +7,11 @@ public class Ability : MonoBehaviour {
 
 	public Sprite[] m_sprites;
 	private Image m_img;
+	private Rigidbody2D m_rb;
 	public bool m_inPlayMode = true;
 	[HideInInspector]
 	public short m_type = 0;
+	[HideInInspector]
 	public Inventory_UI m_Inventory;
 	public Inventory_Ingame m_IngameInventory;
 
@@ -19,7 +21,7 @@ public class Ability : MonoBehaviour {
 	}
 
 	void Start() {
-
+		m_rb = GetComponent<Rigidbody2D>();
 	}
 
 	public void ChangeType(short index) {
@@ -32,6 +34,12 @@ public class Ability : MonoBehaviour {
 			m_IngameInventory.ActivateAbility(this);
 		} else {
 			m_Inventory.RemoveAndSort(this);
+		}
+	}
+
+	void FixedUpdate() {
+		if (m_inPlayMode){
+			m_rb.velocity = Vector2.left*5;
 		}
 	}
 }

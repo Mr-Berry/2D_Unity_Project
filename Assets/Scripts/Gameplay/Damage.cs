@@ -31,12 +31,10 @@ public class Damage : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) {
 		m_target = other.gameObject.GetComponent<Health>();
-		m_movement.StopMovement();
 	}
 
 	void OnTriggerExit2D(Collider2D other) {
 		m_target = null;
-		m_movement.StartMovement();
 		m_isAttacking = false;
 	}
 

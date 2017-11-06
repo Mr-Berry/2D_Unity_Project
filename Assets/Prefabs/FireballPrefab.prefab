@@ -113,6 +113,7 @@ MonoBehaviour:
   m_damage: 50
   m_attackRate: 0
   m_isProjectile: 1
+  m_isAttacking: 0
 --- !u!114 &114605512844704046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -179,6 +180,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_isFlying: 0
   m_speed: 10
+  m_isMoving: 1
+  m_facingRight: 0
 --- !u!212 &212539289142459880
 SpriteRenderer:
   m_ObjectHideFlags: 1
