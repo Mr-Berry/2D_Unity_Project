@@ -49,4 +49,12 @@ public class Movement : MonoBehaviour {
 	void OnTriggerExit2D(Collider2D other) {
 		StartMovement();
 	}
+
+	public void KnockBack() {
+		if (m_facingRight) {
+			m_rb.velocity = 2*m_speed*Vector2.left;			
+		} else {
+			m_rb.velocity = 2*m_speed*Vector2.right;				
+		}
+	}
 }

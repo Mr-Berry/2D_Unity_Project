@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class Player_updated : MonoBehaviour {
+public class Player_updated : NetworkBehaviour {
 
 	public GameObject m_abilityDeckPrefab;
 	public GameObject[] m_spawnables;
