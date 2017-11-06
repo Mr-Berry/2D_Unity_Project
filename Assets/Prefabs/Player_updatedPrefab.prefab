@@ -136,6 +136,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 1777691815258838, guid: a55163b9b28f008409720598595529a2, type: 2}
   - {fileID: 1344145193836108, guid: 52b14f4c47364664ba70a09c8b843c0f, type: 2}
+  - {fileID: 1344145193836108, guid: 814f802e6dd1a9a4babf17176748e2ef, type: 2}
+  - {fileID: 1344145193836108, guid: eebfa0e76bb4a5447ba0f94d3ab0d51e, type: 2}
   m_spawnPoint: {fileID: 4131223956947310}
 --- !u!114 &114474924734045702
 MonoBehaviour:

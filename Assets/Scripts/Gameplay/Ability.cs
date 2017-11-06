@@ -6,12 +6,11 @@ using UnityEngine.UI;
 public class Ability : MonoBehaviour {
 
 	public Sprite[] m_sprites;
-	private Image m_img;
+	protected Image m_img;
 	private Rigidbody2D m_rb;
 	public bool m_inPlayMode = true;
 	[HideInInspector]
 	public short m_type = 0;
-	[HideInInspector]
 	public Inventory_UI m_Inventory;
 	public Inventory_Ingame m_IngameInventory;
 

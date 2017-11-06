@@ -313,9 +313,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_sprites:
   - {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 21300018, guid: 9aca00fa6729f5246b2d16d1cd5f7a8b, type: 3}
+  - {fileID: 21300000, guid: 0869b1e96aac6d34cb086976dc7af826, type: 3}
   - {fileID: 21300000, guid: 20daa800a641d9e4cae18a06630db1ef, type: 3}
-  - {fileID: 21300014, guid: 2b4793e50e706064da8d7fc6a6089856, type: 3}
+  - {fileID: 21300000, guid: ab0e5a97aee714a40bfd5828bdbcf907, type: 3}
+  - {fileID: 21300032, guid: 7c5ccf1f69173ae4aaab977945bd68e5, type: 3}
   m_inPlayMode: 0
   m_type: 0
   m_Inventory: {fileID: 0}

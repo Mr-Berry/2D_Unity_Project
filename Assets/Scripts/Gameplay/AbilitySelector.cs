@@ -4,17 +4,27 @@ using UnityEngine;
 
 public class AbilitySelector : Ability {
 
+	void Start() {
+		m_img.sprite = m_sprites[(int)m_abilities.FIREBALL];
+	}
+
 	public void IncrementType() {
 		m_type++;
 		m_type %= (int)m_abilities.NUM_ABILITIES;
+		if (m_type == 0) {
+			m_type ++;
+		}
 		ChangeType(m_type);
 	}
 
 	public void DecrementType() {
-		if (m_type <= 0) {
-			m_type = (int)m_abilities.NUM_ABILITIES;
-		}
 		m_type--;
+		if (m_type == 0) {
+			m_type --;
+		}		
+		if (m_type <= 0) {
+			m_type = (int)m_abilities.NUM_ABILITIES - 1;
+		}
 		ChangeType(m_type);
 	}
 
