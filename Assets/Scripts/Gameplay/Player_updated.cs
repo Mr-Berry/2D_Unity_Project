@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class Player_updated : MonoBehaviour {
 
@@ -19,21 +20,23 @@ public class Player_updated : MonoBehaviour {
 	}
 
 	private void SetParameters() {
-		Vector2 spawnPos = transform.position;
+		Vector3 spawnPos = transform.position;
 		if (transform.position.x < 0) {
 			gameObject.layer = LayerMask.NameToLayer("Player1");
-			spawnPos.x += 5;
+			spawnPos.x += 1;
 		} else {
 			transform.Rotate(new Vector2(0, 180));
 			gameObject.layer = LayerMask.NameToLayer("Player2");
-			spawnPos.x -= 5;			
+			spawnPos.x -= 1;			
 		}
+		spawnPos.y += (float)0.1;
 		m_spawnPoint.position = spawnPos;
 	}
 
 	public void SpawnType(short type) {
 		if (type != 0) {
 			GameObject temp = Instantiate(m_spawnables[type]);
+			temp.transform.position = m_spawnPoint.position;
 			temp.layer = gameObject.layer;
 		} else {
 			Debug.Log("type = 0");

@@ -30,7 +30,9 @@ public class Damage : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {
-		m_target = other.gameObject.GetComponent<Health>();
+		if (other.GetComponent<Health>() != null) {
+			m_target = other.gameObject.GetComponent<Health>();
+		}
 	}
 
 	void OnTriggerExit2D(Collider2D other) {
@@ -43,7 +45,7 @@ public class Damage : MonoBehaviour {
 			DealDamage();
 			// death particle here
 			// GetComponent<ParticleSystem>().Play;
-			Destroy(this);
+			Destroy(this.gameObject);
 		} else {
 			m_isAttacking = true;
 		}

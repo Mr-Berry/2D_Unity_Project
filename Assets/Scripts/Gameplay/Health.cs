@@ -8,10 +8,12 @@ public class Health : MonoBehaviour {
 	public bool m_isPlayer;
 	public string m_editorComment;
 	private short m_currentHealth;
+	private Movement m_movement;
 	public bool m_isDead { get; set; }
 
 	void Start () {
 		m_currentHealth = m_maxHealth;
+		m_movement = GetComponent<Movement>();
 		m_isDead = false;
 	}
 
@@ -27,6 +29,7 @@ public class Health : MonoBehaviour {
 	private void CheckIsDead() {
 		if (m_currentHealth <= 0) {
 			m_isDead = true;
+			m_movement.StopMovement();
 			if(m_isPlayer) {
 				// switch to lose state
 			} else {
