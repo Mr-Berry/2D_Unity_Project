@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum GameStates_enum { INTRO, MENU, PLAY, WIN, LOSE, NUMSTATES};
+public enum GameStates_enum { INTRO, MENU, WIN, LOSE, NUMSTATES};
 
 public class StateManager : MonoBehaviour {
 	public GameObject[] m_stateObjs;
@@ -27,7 +27,6 @@ public class StateManager : MonoBehaviour {
 	public void InitStates() {
 		m_gameStates[(int)GameStates_enum.INTRO] = new StateGameIntro(GameManager.Instance);
 		m_gameStates[(int)GameStates_enum.MENU] = new StateGameMenu(GameManager.Instance);
-		m_gameStates[(int)GameStates_enum.PLAY] = new StateGamePlay(GameManager.Instance);
 		m_gameStates[(int)GameStates_enum.WIN] = new StateGameWon(GameManager.Instance);
 		m_gameStates[(int)GameStates_enum.LOSE] = new StateGameLost(GameManager.Instance);
 		for (int i = 0; i < (int)GameStates_enum.NUMSTATES; i++) {

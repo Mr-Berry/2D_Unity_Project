@@ -132,8 +132,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e4cac92939a72f4987c319f925fc2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_abilityDeckPrefab: {fileID: 1761128163933584, guid: 0e96af34737d0bd42af5864188f4bec1,
-    type: 2}
   m_spawnables:
   - {fileID: 1761128163933584, guid: 0e96af34737d0bd42af5864188f4bec1, type: 2}
   - {fileID: 1777691815258838, guid: a55163b9b28f008409720598595529a2, type: 2}
@@ -142,6 +140,10 @@ MonoBehaviour:
   - {fileID: 1344145193836108, guid: eebfa0e76bb4a5447ba0f94d3ab0d51e, type: 2}
   - {fileID: 1754294399983102, guid: 88315561aca526d4aa7dfa406ed623f4, type: 2}
   - {fileID: 1628588153639994, guid: b54532bec1ddc8045b2b93e10b2d04dd, type: 2}
+  m_abilityDeckPrefab: {fileID: 1761128163933584, guid: 0e96af34737d0bd42af5864188f4bec1,
+    type: 2}
+  m_resourceGenPrefab: {fileID: 1967329616227882, guid: 4296aeb2493ca07418d4b2639c77d082,
+    type: 2}
   m_spawnPoint: {fileID: 4131223956947310}
 --- !u!114 &114474924734045702
 MonoBehaviour:

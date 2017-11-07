@@ -30,7 +30,7 @@ GameObject:
   - component: {fileID: 114242065977312180}
   - component: {fileID: 114268949568953364}
   m_Layer: 9
-  m_Name: YetiPrefab
+  m_Name: DragonWarriorPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,18 +81,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.35259598, y: -0.049768925}
+  m_Offset: {x: 0.3864987, y: -0.614808}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.67, y: 2.52}
+    oldSize: {x: 5.12, y: 2.56}
     newSize: {x: 1.09, y: 0.82}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6886042, y: 2.4947367}
+  m_Size: {x: 1.3043737, y: 1.183843}
   m_EdgeRadius: 0
 --- !u!95 &95821016570068098
 Animator:
@@ -103,7 +103,7 @@ Animator:
   m_GameObject: {fileID: 1344145193836108}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0483d0bab39392f4ab419ec5e55a326c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 69b0a92c6a0fb4d49b209745a2b1a46a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -125,22 +125,22 @@ MonoBehaviour:
   m_SceneId:
     m_Value: 0
   m_AssetId:
-    i0: 238
-    i1: 191
-    i2: 160
-    i3: 231
-    i4: 107
-    i5: 180
-    i6: 165
-    i7: 68
-    i8: 123
-    i9: 160
-    i10: 249
-    i11: 77
-    i12: 58
-    i13: 176
-    i14: 213
-    i15: 30
+    i0: 82
+    i1: 177
+    i2: 79
+    i3: 76
+    i4: 71
+    i5: 54
+    i6: 70
+    i7: 100
+    i8: 186
+    i9: 112
+    i10: 160
+    i11: 156
+    i12: 139
+    i13: 132
+    i14: 60
+    i15: 15
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
 --- !u!114 &114268949568953364
@@ -176,7 +176,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_isFlying: 0
-  m_speed: 0.75
+  m_speed: 1
+  m_knockbackMultiplier: 150
   m_isMoving: 1
   m_facingRight: 0
 --- !u!114 &114540283790812772
@@ -201,9 +202,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64983a9cb3de01b40ae6842f9a3b6876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxHealth: 20
+  m_maxHealth: 10
   m_isPlayer: 0
   m_editorComment: 
+  m_hasDeathAnim: 0
 --- !u!114 &114945444549658382
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -215,7 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe16ef24bfb86a944850aaa33f17f2ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_damage: 8
+  m_damage: 2
   m_attackRate: 2
   m_isProjectile: 0
   m_isAttacking: 0
@@ -251,7 +253,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300032, guid: 7c5ccf1f69173ae4aaab977945bd68e5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 20daa800a641d9e4cae18a06630db1ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

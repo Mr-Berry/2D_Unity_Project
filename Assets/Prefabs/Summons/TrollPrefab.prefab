@@ -177,6 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_isFlying: 0
   m_speed: 0.5
+  m_knockbackMultiplier: 150
   m_isMoving: 1
   m_facingRight: 0
 --- !u!114 &114540283790812772

@@ -4,27 +4,21 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 public class Player_updated : NetworkBehaviour {
-
-	public GameObject m_abilityDeckPrefab;
 	public GameObject[] m_spawnables;
-	private GameObject m_abilityDeck;
+	public GameObject m_abilityDeckPrefab;
+	public GameObject m_resourceGenPrefab;
+	private ResourceGen m_energy;
 	public Transform m_spawnPoint;
+	private GameObject m_abilityDeck;
 	private int z_layer = 0;
-
-	void Awake() {
-		Debug.Log("hello");
-		// if (GameManager.Instance.m_players[0] == null) {
-		// 	GameManager.Instance.m_players[0] = this;				
-		// } else {
-		// 	GameManager.Instance.m_players[1] = this;
-		// }
-
-	}
+	private int WON = 1;
+	private int LOST = 0;
 	
 	void Start() {
 		if (isLocalPlayer){
 			SetupDeck();
 			SetParameters();
+			SetupResources();
 		}
 		m_abilityDeck.GetComponentInChildren<Inventory_Ingame>().m_owner = this;
 	}
@@ -46,19 +40,22 @@ public class Player_updated : NetworkBehaviour {
 	[Command]
 	public void CmdSpawnType(short type) {
 		if (type != 0) {
-			GameObject temp = Instantiate(m_spawnables[type]);
-			NetworkServer.Spawn(temp);
-			Vector3 newPosition = m_spawnPoint.position;
-			newPosition.z += z_layer;
-			temp.transform.position = newPosition;
-			temp.layer = gameObject.layer;
-			z_layer--;
-			if (z_layer <= -5) {
-				z_layer = 0;
+			if (m_energy.CanPurchase(type)) {
+				GameObject temp = Instantiate(m_spawnables[type]);
+				NetworkServer.Spawn(temp);
+				Vector3 newPosition = m_spawnPoint.position;
+				newPosition.z += z_layer;
+				temp.transform.position = newPosition;
+				temp.layer = gameObject.layer;
+				z_layer--;
+				if (z_layer <= -5) {
+					z_layer = 0;
+				}
 			}
 		} else {
 			Debug.Log("type = 0");
 		}
+
 	}
 
 	private void SetupDeck() {
@@ -68,16 +65,25 @@ public class Player_updated : NetworkBehaviour {
 		newPos.y = 3;
 		m_abilityDeck.transform.position = newPos;
 		m_abilityDeck.transform.localScale /= transform.localScale.x;
-		Debug.Log(m_abilityDeck == null);
 	}
 
 	void Update() {
 		if (GameManager.Instance.m_isGameOver) {
-
+			PlayerPrefs.SetInt("HasWon", WON);
 		}
 	}
 
 	public void SetGameOver() {
 		GameManager.Instance.m_isGameOver = true;
+	}
+
+	private void SetupResources() {
+		GameObject temp = Instantiate(m_resourceGenPrefab);
+		Vector3 newPos = m_abilityDeck.transform.position; 
+		newPos.x += m_spawnPoint.position.x * 3;
+		newPos.y -= 2;
+		temp.transform.position = newPos;
+		temp.transform.localScale /= transform.localScale.x;
+		m_energy = temp.GetComponent<ResourceGen>();		
 	}
 }
