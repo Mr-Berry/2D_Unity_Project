@@ -7,9 +7,11 @@ public class Health : MonoBehaviour {
 	public short m_maxHealth;
 	public bool m_isPlayer;
 	public string m_editorComment;
-	private short m_currentHealth;
+	public short m_currentHealth;
 	private Movement m_movement;
 	public bool m_isDead { get; set; }
+
+	public short m_healthToAdd;
 
 	void Start () {
 		m_currentHealth = m_maxHealth;
@@ -22,8 +24,13 @@ public class Health : MonoBehaviour {
 		CheckIsDead();
 	}
 
-	void Update() {
-
+	void Update() 
+	{
+		if (Input.GetKeyDown(KeyCode.H))
+		{
+			m_currentHealth += m_healthToAdd;
+			Debug.Log(m_currentHealth);
+		}
 	}
 
 	private void CheckIsDead() {
@@ -36,9 +43,13 @@ public class Health : MonoBehaviour {
 
 			}
 		}
+
+		
 	}
 
 	public void DestroySelf() {
 		Destroy(this.gameObject);
 	}
+
+	
 }
