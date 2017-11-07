@@ -317,6 +317,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 20daa800a641d9e4cae18a06630db1ef, type: 3}
   - {fileID: 21300000, guid: ab0e5a97aee714a40bfd5828bdbcf907, type: 3}
   - {fileID: 21300032, guid: 7c5ccf1f69173ae4aaab977945bd68e5, type: 3}
+  - {fileID: 21300000, guid: de9714f3b21127e4196ebe9bd2163252, type: 3}
+  - {fileID: 21300004, guid: 0df98059c6e2f8f4c96595a720981770, type: 3}
   m_inPlayMode: 0
   m_type: 0
   m_Inventory: {fileID: 0}

@@ -11,15 +11,17 @@ public class Damage : MonoBehaviour {
 	public bool m_isProjectile;
 	public bool m_isAttacking = false;
 	private float m_timer = 0;
-	private Health m_target = null;
+	private List<Health> m_target = new List<Health>();
+	private AnimationController m_anim;
 	private Movement m_movement;
 
 	void Start() {
 		m_movement = GetComponent<Movement>();
+		m_anim = GetComponent<AnimationController>();
 	}
 
 	void Update() {
-		if (m_target != null) {
+		if (m_target.Count != 0) {
 			if (m_timer <= 0) {
 				m_timer = m_attackRate;
 				SetAttacking();
@@ -31,13 +33,19 @@ public class Damage : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.GetComponent<Health>() != null) {
-			m_target = other.gameObject.GetComponent<Health>();
+			m_target.Add(other.gameObject.GetComponent<Health>());
 		}
 	}
 
 	void OnTriggerExit2D(Collider2D other) {
-		m_target = null;
-		m_isAttacking = false;
+		m_target.Remove(other.gameObject.GetComponent<Health>());
+		Debug.Log("object exit");
+		if (m_target.Count == 0){
+			m_isAttacking = false;
+			if (m_anim != null)	{
+				m_anim.StopAttacking();
+			}
+		}
 	}
 
 	private void SetAttacking() {
@@ -52,6 +60,6 @@ public class Damage : MonoBehaviour {
 	}
 
 	public void DealDamage() {
-		m_target.TakeDamage(m_damage);
+		m_target[0].TakeDamage(m_damage);
 	}
 }

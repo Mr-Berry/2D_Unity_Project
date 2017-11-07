@@ -9,14 +9,24 @@ public class Player_updated : NetworkBehaviour {
 	public GameObject[] m_spawnables;
 	private GameObject m_abilityDeck;
 	public Transform m_spawnPoint;
+	private int z_layer = 0;
 
 	void Awake() {
-		SetupDeck();
-		SetParameters();
+		Debug.Log("hello");
+		// if (GameManager.Instance.m_players[0] == null) {
+		// 	GameManager.Instance.m_players[0] = this;				
+		// } else {
+		// 	GameManager.Instance.m_players[1] = this;
+		// }
+
 	}
 	
 	void Start() {
-		m_abilityDeck.GetComponent<Inventory_Ingame>().m_owner = this;
+		if (isLocalPlayer){
+			SetupDeck();
+			SetParameters();
+		}
+		m_abilityDeck.GetComponentInChildren<Inventory_Ingame>().m_owner = this;
 	}
 
 	private void SetParameters() {
@@ -33,23 +43,32 @@ public class Player_updated : NetworkBehaviour {
 		m_spawnPoint.position = spawnPos;
 	}
 
-	public void SpawnType(short type) {
+	[Command]
+	public void CmdSpawnType(short type) {
 		if (type != 0) {
 			GameObject temp = Instantiate(m_spawnables[type]);
-			temp.transform.position = m_spawnPoint.position;
+			NetworkServer.Spawn(temp);
+			Vector3 newPosition = m_spawnPoint.position;
+			newPosition.z += z_layer;
+			temp.transform.position = newPosition;
 			temp.layer = gameObject.layer;
+			z_layer--;
+			if (z_layer <= -5) {
+				z_layer = 0;
+			}
 		} else {
 			Debug.Log("type = 0");
 		}
 	}
 
 	private void SetupDeck() {
-		m_abilityDeck = Instantiate(m_abilityDeckPrefab, transform);
+		m_abilityDeck = Instantiate(m_abilityDeckPrefab);
 		Vector3 newPos = m_abilityDeck.transform.position;
 		newPos.x = 0;
-		newPos.y = 0;
+		newPos.y = 3;
 		m_abilityDeck.transform.position = newPos;
 		m_abilityDeck.transform.localScale /= transform.localScale.x;
+		Debug.Log(m_abilityDeck == null);
 	}
 
 	void Update() {

@@ -7,6 +7,7 @@ public class Health : MonoBehaviour {
 	public short m_maxHealth;
 	public bool m_isPlayer;
 	public string m_editorComment;
+	public bool m_hasDeathAnim;
 	private short m_currentHealth;
 	private Movement m_movement;
 	public bool m_isDead { get; set; }
@@ -29,11 +30,13 @@ public class Health : MonoBehaviour {
 	private void CheckIsDead() {
 		if (m_currentHealth <= 0) {
 			m_isDead = true;
-			m_movement.StopMovement();
 			if(m_isPlayer) {
-				// switch to lose state
+				Debug.Log("Player dead");
+			}
+			if (m_movement == null) {
+				Destroy(this.gameObject);
 			} else {
-
+				m_movement.StopMovement();
 			}
 		}
 	}

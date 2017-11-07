@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class Inventory_Ingame : MonoBehaviour {
 
@@ -60,7 +61,7 @@ public class Inventory_Ingame : MonoBehaviour {
 	}
 
 	public void ActivateAbility(Ability ability) {
-		m_owner.SpawnType(ability.m_type);
+		m_owner.CmdSpawnType(ability.m_type);
 		RespawnBox(ability);
 	}
 }

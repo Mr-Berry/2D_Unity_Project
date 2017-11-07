@@ -204,6 +204,7 @@ MonoBehaviour:
   m_maxHealth: 30
   m_isPlayer: 0
   m_editorComment: 
+  m_hasDeathAnim: 0
 --- !u!114 &114945444549658382
 MonoBehaviour:
   m_ObjectHideFlags: 1

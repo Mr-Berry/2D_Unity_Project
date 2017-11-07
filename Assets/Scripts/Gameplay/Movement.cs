@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class Movement : MonoBehaviour {
+public class Movement : NetworkBehaviour {
 
 	public bool m_isFlying;
 	public float m_speed;
+	public short m_knockbackMultiplier = 150;
 	public bool m_isMoving = true;
 	public bool m_facingRight = false;
 	private Rigidbody2D m_rb;
@@ -52,9 +54,9 @@ public class Movement : MonoBehaviour {
 
 	public void KnockBack() {
 		if (m_facingRight) {
-			m_rb.velocity = 2*m_speed*Vector2.left;			
+			m_rb.AddForce(m_knockbackMultiplier*m_speed*Vector2.right);			
 		} else {
-			m_rb.velocity = 2*m_speed*Vector2.right;				
+			m_rb.AddForce(m_knockbackMultiplier*m_speed*Vector2.left);				
 		}
 	}
 }
