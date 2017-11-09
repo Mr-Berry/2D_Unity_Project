@@ -61,7 +61,8 @@ public class Inventory_Ingame : MonoBehaviour {
 	}
 
 	public void ActivateAbility(Ability ability) {
-		m_owner.Spawn(ability.m_type);
-		RespawnBox(ability);
+		if (m_owner.Spawn(ability.m_type)) {
+			RespawnBox(ability);
+		}
 	}
 }

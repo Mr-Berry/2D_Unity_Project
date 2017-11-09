@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour {
 		m_currentState.Enter();
 	}
 
-	public void StartGame() {
-		SceneManager.LoadScene("Jason'sNetworkScene", LoadSceneMode.Single);
+	public void StartGame(int i) {
+		SceneManager.LoadSceneAsync(i,LoadSceneMode.Additive);
 	}
 }

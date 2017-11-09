@@ -11,9 +11,3 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Jason'sNetworkScene.unity
     guid: 61cedca64862e2d468bfbefb9f89c564
-  - enabled: 1
-    path: Assets/_Scenes/JoshNetworkTest.unity
-    guid: 7313969e993611a4f81c1db880f8398e
-  - enabled: 1
-    path: Assets/_Scenes/Lobby.unity
-    guid: 5408180650fc81445afb857861bfe97d

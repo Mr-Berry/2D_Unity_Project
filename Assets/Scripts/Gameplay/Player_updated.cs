@@ -13,19 +13,17 @@ public class Player_updated : NetworkBehaviour {
 	private int z_layer = 0;
 	private int WON = 1;
 	private int LOST = 0;
-	
+
+	public override void OnStartClient() {
+		CmdSetParameters();
+	}
+
 	void Start() {
-		if (isLocalPlayer){
+		if (isLocalPlayer) {
 			SetupDeck();
-			HandleParameters();
 			SetupResources();
 			m_abilityDeck.GetComponentInChildren<Inventory_Ingame>().m_owner = this;
 		}
-	}
-
-	private void HandleParameters() {
-		CmdSetParameters();
-		SetParameters();
 	}
 
 	[Command]
@@ -43,62 +41,29 @@ public class Player_updated : NetworkBehaviour {
 		m_spawnPoint.position = spawnPos;
 	}
 
-	private void SetParameters() {
-		Vector3 spawnPos = transform.position;
-		if (transform.position.x < 0) {
-			gameObject.layer = LayerMask.NameToLayer("Player1");
-			spawnPos.x += 1;
-		} else {
-			transform.Rotate(new Vector2(0, 180));
-			gameObject.layer = LayerMask.NameToLayer("Player2");
-			spawnPos.x -= 1;			
-		}
-		spawnPos.y += (float)0.1;
-		m_spawnPoint.position = spawnPos;
-	}
-
 	[Command]
 	public void CmdSpawnType(short type) {
-		if (type != 0) {
-			if (m_energy.CanPurchase(type)) {
-				GameObject temp = Instantiate(m_spawnables[type]);
-				Vector3 newPosition = m_spawnPoint.position;
-				newPosition.z += z_layer;
-				temp.transform.position = newPosition;
-				temp.layer = gameObject.layer;
-				z_layer--;
-				if (z_layer <= -5) {
-					z_layer = 0;
-				}
-			}
-		} else {
-			Debug.Log("type = 0");
+		GameObject temp = Instantiate(m_spawnables[type]);
+		Vector3 newPosition = m_spawnPoint.position;
+		newPosition.z += z_layer;
+		temp.transform.position = newPosition;
+		temp.layer = gameObject.layer;
+		z_layer--;
+		NetworkServer.Spawn(temp);
+		if (z_layer <= -5) {
+			z_layer = 0;
 		}
 	}
 
-	public void SpawnType(short type) {
-		if (type != 0) {
-			if (m_energy.CanPurchase(type)) {
-				GameObject temp = Instantiate(m_spawnables[type]);
-				Vector3 newPosition = m_spawnPoint.position;
-				newPosition.z += z_layer;
-				temp.transform.position = newPosition;
-				temp.layer = gameObject.layer;
-				z_layer--;
-				if (z_layer <= -5) {
-					z_layer = 0;
-				}
-			}
-		} else {
-			Debug.Log("type = 0");
-		}
-	}
-
-	public void Spawn(short type) {
+	public bool Spawn(short type) {
+		bool hasSpawned = false;
 		if (isLocalPlayer) {
-//			SpawnType(type);
-			CmdSpawnType(type);
+			if (type != 0 && m_energy.CanPurchase(type)) {
+				CmdSpawnType(type);
+				hasSpawned = true;
+			}
 		}
+		return hasSpawned;
 	}
 
 	private void SetupDeck() {

@@ -5,7 +5,8 @@ using UnityEngine;
 public class AbilitySelector : Ability {
 
 	void Start() {
-		m_img.sprite = m_sprites[(int)m_abilities.FIREBALL];
+		m_type = (int)m_abilities.FIREBALL;
+		m_img.sprite = m_sprites[m_type];
 	}
 
 	public void IncrementType() {

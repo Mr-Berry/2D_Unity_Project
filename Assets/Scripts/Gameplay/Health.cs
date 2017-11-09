@@ -45,21 +45,15 @@ public class Health : MonoBehaviour {
 			} else {
 				m_movement.StopMovement();
 			}
-		}
-
-		
+		}	
 	}
 
 	public void DestroySelf() {
 		Destroy(this.gameObject);
 	}
 
-<<<<<<< HEAD
 	public void SetGameOver() {
 		GameManager.Instance.m_isGameOver = true;
 
 	}
-=======
-	
->>>>>>> SaReN
 }

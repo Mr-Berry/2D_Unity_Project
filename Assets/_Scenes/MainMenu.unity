@@ -656,7 +656,6 @@ GameObject:
   - component: {fileID: 515133381}
   - component: {fileID: 515133380}
   - component: {fileID: 515133379}
-  - component: {fileID: 515133378}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -664,13 +663,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &515133378
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 515133377}
-  m_Enabled: 1
 --- !u!124 &515133379
 Behaviour:
   m_ObjectHideFlags: 0
@@ -1852,11 +1844,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1556485661}
         m_MethodName: StartGame
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

@@ -17,16 +17,14 @@ public class HealthBar : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () 
-	{
-		m_health = m_Player.m_currentHealth;
-		HandleBar();
-	}
+	// void Update () 
+	// {
+	// 	m_health = m_Player.m_currentHealth;
+	// 	HandleBar();
+	// }
 
-	private void HandleBar()
-	{
-		contant.fillAmount = m_health;
-	}
-
-	
+	// private void HandleBar()
+	// {
+	// 	contant.fillAmount = m_health;
+	// }
 }
