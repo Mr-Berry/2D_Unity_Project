@@ -13,6 +13,27 @@ public class Movement : NetworkBehaviour {
 	private Rigidbody2D m_rb;
 	
 	void Start () {
+		SetParameters();
+		NetworkServer.Spawn(this.gameObject);
+	}
+
+	[Command]
+	private void CmdSetParameters(){
+		m_rb = GetComponent<Rigidbody2D>();
+		if (transform.position.x < 0) {
+			m_facingRight = true;
+		} else {
+			m_speed *= -1;
+		}
+		if (!m_facingRight) {
+			transform.Rotate(new Vector2(0,180));
+		}
+		if (transform.position.x == 0) {
+			Debug.Log("object at zeroed X position");
+		}
+	}
+
+	private void SetParameters() {
 		m_rb = GetComponent<Rigidbody2D>();
 		if (transform.position.x < 0) {
 			m_facingRight = true;
@@ -33,6 +54,7 @@ public class Movement : NetworkBehaviour {
 				m_rb.velocity += Vector2.right * m_speed * Time.deltaTime;
 			}
 		}
+
 	}
 
 	public void StopMovement() {
@@ -59,4 +81,9 @@ public class Movement : NetworkBehaviour {
 			m_rb.AddForce(m_knockbackMultiplier*m_speed*Vector2.left);				
 		}
 	}
+
+	// [Command]
+	// private void CmdFlipSprite() {
+	// 	NetworkTransform.
+	// }
 }

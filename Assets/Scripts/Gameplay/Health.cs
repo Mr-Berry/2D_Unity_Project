@@ -44,4 +44,9 @@ public class Health : MonoBehaviour {
 	public void DestroySelf() {
 		Destroy(this.gameObject);
 	}
+
+	public void SetGameOver() {
+		GameManager.Instance.m_isGameOver = true;
+
+	}
 }

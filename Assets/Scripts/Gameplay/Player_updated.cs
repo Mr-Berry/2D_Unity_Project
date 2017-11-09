@@ -17,10 +17,30 @@ public class Player_updated : NetworkBehaviour {
 	void Start() {
 		if (isLocalPlayer){
 			SetupDeck();
-			SetParameters();
+			HandleParameters();
 			SetupResources();
+			m_abilityDeck.GetComponentInChildren<Inventory_Ingame>().m_owner = this;
 		}
-		m_abilityDeck.GetComponentInChildren<Inventory_Ingame>().m_owner = this;
+	}
+
+	private void HandleParameters() {
+		CmdSetParameters();
+		SetParameters();
+	}
+
+	[Command]
+	private void CmdSetParameters() {
+		Vector3 spawnPos = transform.position;
+		if (transform.position.x < 0) {
+			gameObject.layer = LayerMask.NameToLayer("Player1");
+			spawnPos.x += 1;
+		} else {
+			transform.Rotate(new Vector2(0, 180));
+			gameObject.layer = LayerMask.NameToLayer("Player2");
+			spawnPos.x -= 1;			
+		}
+		spawnPos.y += (float)0.1;
+		m_spawnPoint.position = spawnPos;
 	}
 
 	private void SetParameters() {
@@ -42,7 +62,6 @@ public class Player_updated : NetworkBehaviour {
 		if (type != 0) {
 			if (m_energy.CanPurchase(type)) {
 				GameObject temp = Instantiate(m_spawnables[type]);
-				NetworkServer.Spawn(temp);
 				Vector3 newPosition = m_spawnPoint.position;
 				newPosition.z += z_layer;
 				temp.transform.position = newPosition;
@@ -55,7 +74,31 @@ public class Player_updated : NetworkBehaviour {
 		} else {
 			Debug.Log("type = 0");
 		}
+	}
 
+	public void SpawnType(short type) {
+		if (type != 0) {
+			if (m_energy.CanPurchase(type)) {
+				GameObject temp = Instantiate(m_spawnables[type]);
+				Vector3 newPosition = m_spawnPoint.position;
+				newPosition.z += z_layer;
+				temp.transform.position = newPosition;
+				temp.layer = gameObject.layer;
+				z_layer--;
+				if (z_layer <= -5) {
+					z_layer = 0;
+				}
+			}
+		} else {
+			Debug.Log("type = 0");
+		}
+	}
+
+	public void Spawn(short type) {
+		if (isLocalPlayer) {
+//			SpawnType(type);
+			CmdSpawnType(type);
+		}
 	}
 
 	private void SetupDeck() {
@@ -63,14 +106,15 @@ public class Player_updated : NetworkBehaviour {
 		Vector3 newPos = m_abilityDeck.transform.position;
 		newPos.x = 0;
 		newPos.y = 3;
+		newPos.z = 0;
 		m_abilityDeck.transform.position = newPos;
 		m_abilityDeck.transform.localScale /= transform.localScale.x;
 	}
 
 	void Update() {
-		if (GameManager.Instance.m_isGameOver) {
-			PlayerPrefs.SetInt("HasWon", WON);
-		}
+		// if (GameManager.Instance.m_isGameOver) {
+		// 	PlayerPrefs.SetInt("GameWon", WON);
+		// }
 	}
 
 	public void SetGameOver() {
@@ -80,8 +124,9 @@ public class Player_updated : NetworkBehaviour {
 	private void SetupResources() {
 		GameObject temp = Instantiate(m_resourceGenPrefab);
 		Vector3 newPos = m_abilityDeck.transform.position; 
-		newPos.x += m_spawnPoint.position.x * 3;
+		newPos.x = transform.position.x;
 		newPos.y -= 2;
+		newPos.z = 0;
 		temp.transform.position = newPos;
 		temp.transform.localScale /= transform.localScale.x;
 		m_energy = temp.GetComponent<ResourceGen>();		
