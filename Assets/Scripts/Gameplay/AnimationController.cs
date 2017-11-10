@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class AnimationController : MonoBehaviour {
+public class AnimationController : NetworkBehaviour {
 
 	private Damage m_damage;
 	private Health m_health;
@@ -46,7 +47,8 @@ public class AnimationController : MonoBehaviour {
 		}
 	}
 
-	public void StopAttacking() {
+	[Command]
+	public void CmdStopAttacking() {
 		m_anim.SetBool(m_attackingHash, false);		
 	}
 }

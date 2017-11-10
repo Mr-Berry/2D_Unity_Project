@@ -29,6 +29,7 @@ GameObject:
   - component: {fileID: 114540283790812772}
   - component: {fileID: 114242065977312180}
   - component: {fileID: 114268949568953364}
+  - component: {fileID: 114580724144614496}
   m_Layer: 9
   m_Name: YetiPrefab
   m_TagString: Untagged
@@ -191,6 +192,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ffd91f1fdc6c374eb32909626dac43c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114580724144614496
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1344145193836108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1590678366, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Animator: {fileID: 95821016570068098}
+  m_ParameterSendBits: 0
+  param0: 
+  param1: 
+  param2: 
+  param3: 
+  param4: 
+  param5: 
 --- !u!114 &114836492026051052
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -206,6 +226,8 @@ MonoBehaviour:
   m_isPlayer: 0
   m_editorComment: 
   m_hasDeathAnim: 0
+  m_currentHealth: 0
+  m_healthToAdd: 0
 --- !u!114 &114945444549658382
 MonoBehaviour:
   m_ObjectHideFlags: 1

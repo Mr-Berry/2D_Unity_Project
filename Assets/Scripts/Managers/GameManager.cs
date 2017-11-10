@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Networking;
 
 public enum m_abilities{NONE, FIREBALL, DRAGONWAR, TROLL, YETI, KNOCKBACK, SHIELD, NUM_ABILITIES}
 public enum m_costs{NONE = 0, FIREBALL = 1, DRAGONWAR = 2, TROLL = 5, YETI = 3, SHIELD = 2, KNOCKBACK = 2}
 
-public class GameManager : MonoBehaviour {
+public class GameManager : NetworkBehaviour {
 	public StateManager m_sm;
 	public bool m_isGameOver = false;
 	private GameState m_currentState;
@@ -15,7 +16,7 @@ public class GameManager : MonoBehaviour {
 	public Player_updated[] m_players = new Player_updated[2]; 
 
 	void Awake () {
-//		PlayerPrefs.DeleteKey("GameWon");
+		PlayerPrefs.DeleteKey("GameWon");
 //		PlayerPrefs.DeleteAll();
 		if (m_instance != null && m_instance != this) {
 			Destroy(this.gameObject);
@@ -57,7 +58,15 @@ public class GameManager : MonoBehaviour {
 		m_currentState.Enter();
 	}
 
-	public void StartGame(int i) {
-		SceneManager.LoadSceneAsync(i,LoadSceneMode.Additive);
+	public void StartGame() {
+		SceneManager.LoadSceneAsync(1,LoadSceneMode.Additive);
+	}
+
+	public void SetGameOver() {
+		m_isGameOver = true;
+	}
+
+	public void LoadMenu() {
+		SceneManager.LoadSceneAsync(0,LoadSceneMode.Additive);
 	}
 }

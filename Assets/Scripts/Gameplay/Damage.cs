@@ -43,7 +43,7 @@ public class Damage : MonoBehaviour {
 		if (m_target.Count == 0){
 			m_isAttacking = false;
 			if (m_anim != null)	{
-				m_anim.StopAttacking();
+				m_anim.CmdStopAttacking();
 			}
 		}
 	}

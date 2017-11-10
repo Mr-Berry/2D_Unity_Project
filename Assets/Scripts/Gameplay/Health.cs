@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class Health : MonoBehaviour {
+public class Health : NetworkBehaviour {
 
 	public short m_maxHealth;
 	public bool m_isPlayer;
@@ -25,12 +26,11 @@ public class Health : MonoBehaviour {
 		CheckIsDead();
 	}
 
-	void Update() 
-	{
-		if (Input.GetKeyDown(KeyCode.H))
-		{
-			m_currentHealth += m_healthToAdd;
-			Debug.Log(m_currentHealth);
+	void Update() {
+		if(GameManager.Instance.m_isGameOver) {
+			GameManager.Instance.LoadMenu();
+			NetworkClient.ShutdownAll();
+			GameManager.Instance.m_isGameOver = false;
 		}
 	}
 
@@ -38,7 +38,11 @@ public class Health : MonoBehaviour {
 		if (m_currentHealth <= 0) {
 			m_isDead = true;
 			if(m_isPlayer) {
-				Debug.Log("Player dead");
+				if (isClient) {
+					Debug.Log("isdead");
+				}
+				GameManager.Instance.SetGameOver();
+				GameManager.Instance.LoadMenu();
 			}
 			if (m_movement == null) {
 				Destroy(this.gameObject);
@@ -50,10 +54,5 @@ public class Health : MonoBehaviour {
 
 	public void DestroySelf() {
 		Destroy(this.gameObject);
-	}
-
-	public void SetGameOver() {
-		GameManager.Instance.m_isGameOver = true;
-
 	}
 }

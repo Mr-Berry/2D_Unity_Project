@@ -77,13 +77,9 @@ public class Player_updated : NetworkBehaviour {
 	}
 
 	void Update() {
-		// if (GameManager.Instance.m_isGameOver) {
-		// 	PlayerPrefs.SetInt("GameWon", WON);
-		// }
-	}
-
-	public void SetGameOver() {
-		GameManager.Instance.m_isGameOver = true;
+		if (GameManager.Instance.m_isGameOver) {
+			PlayerPrefs.SetInt("GameWon", WON);
+		}
 	}
 
 	private void SetupResources() {

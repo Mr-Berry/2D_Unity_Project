@@ -10,8 +10,11 @@ public class KnockBack : MonoBehaviour {
 	void Start() {
 		if (transform.position.x < 0) {
 			transform.Rotate(new Vector2(0, 180));
+			transform.position += new Vector3(m_offset, 0, 0);
+		} else {
+			transform.position -= new Vector3(m_offset, 0, 0);			
 		}
-		transform.position += new Vector3(m_offset, 0, 0);
+
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {

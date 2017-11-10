@@ -14,7 +14,6 @@ public class Movement : NetworkBehaviour {
 	
 	void Start () {
 		SetParameters();
-		NetworkServer.Spawn(this.gameObject);
 	}
 
 	[Command]
@@ -49,7 +48,7 @@ public class Movement : NetworkBehaviour {
 	}
 	
 	void Update () {
-		if (m_isMoving) {
+		if (m_isMoving && m_rb != null) {
 			if ((m_facingRight && m_rb.velocity.x < m_speed) || (!m_facingRight && m_rb.velocity.x > m_speed)) {
 				m_rb.velocity += Vector2.right * m_speed * Time.deltaTime;
 			}
