@@ -39,7 +39,7 @@ public class Health : NetworkBehaviour {
 			m_isDead = true;
 			if(m_isPlayer) {
 				if (isClient) {
-					Debug.Log("isdead");
+
 				}
 				GameManager.Instance.SetGameOver();
 				GameManager.Instance.LoadMenu();
