@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class Health : NetworkBehaviour {
 
@@ -28,9 +29,13 @@ public class Health : NetworkBehaviour {
 
 	void Update() {
 		if(GameManager.Instance.m_isGameOver) {
-			GameManager.Instance.LoadMenu();
-			NetworkClient.ShutdownAll();
-			GameManager.Instance.m_isGameOver = false;
+			if (gameObject.tag == "Player2") {
+				GameManager.Instance.hasClient = false;
+				NetworkManager.Shutdown();					
+			} else if (gameObject.tag == "Player1" && !GameManager.Instance.hasClient) {
+				GameManager.Instance.m_isGameOver = false;
+				NetworkManager.Shutdown();
+			}
 		}
 	}
 
@@ -38,11 +43,11 @@ public class Health : NetworkBehaviour {
 		if (m_currentHealth <= 0) {
 			m_isDead = true;
 			if(m_isPlayer) {
-				if (isClient) {
-
-				}
 				GameManager.Instance.SetGameOver();
-				GameManager.Instance.LoadMenu();
+				if (gameObject.tag == "Player2") {
+					GameManager.Instance.hasClient = false;
+//					GameManager.Instance.LoadMenu();					
+				}
 			}
 			if (m_movement == null) {
 				Destroy(this.gameObject);

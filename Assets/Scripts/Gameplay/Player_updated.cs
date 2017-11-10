@@ -13,6 +13,7 @@ public class Player_updated : NetworkBehaviour {
 	private int z_layer = 0;
 	private int WON = 1;
 	private int LOST = 0;
+	private NetworkManager m_network;
 
 	public override void OnStartClient() {
 		CmdSetParameters();
@@ -31,10 +32,13 @@ public class Player_updated : NetworkBehaviour {
 		Vector3 spawnPos = transform.position;
 		if (transform.position.x < 0) {
 			gameObject.layer = LayerMask.NameToLayer("Player1");
+			gameObject.tag = "Player1";
 			spawnPos.x += 1;
 		} else {
 			transform.Rotate(new Vector2(0, 180));
 			gameObject.layer = LayerMask.NameToLayer("Player2");
+			gameObject.tag = "Player2";
+			GameManager.Instance.hasClient = true;
 			spawnPos.x -= 1;			
 		}
 		spawnPos.y += (float)0.1;
@@ -77,9 +81,7 @@ public class Player_updated : NetworkBehaviour {
 	}
 
 	void Update() {
-		if (GameManager.Instance.m_isGameOver) {
-			PlayerPrefs.SetInt("GameWon", WON);
-		}
+
 	}
 
 	private void SetupResources() {

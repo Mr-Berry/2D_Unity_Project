@@ -10,6 +10,7 @@ public enum m_costs{NONE = 0, FIREBALL = 1, DRAGONWAR = 2, TROLL = 5, YETI = 3, 
 public class GameManager : NetworkBehaviour {
 	public StateManager m_sm;
 	public bool m_isGameOver = false;
+	public bool hasClient = false;
 	private GameState m_currentState;
 	public static GameManager Instance {get { return m_instance; } }
 	private static GameManager m_instance = null;
@@ -25,7 +26,9 @@ public class GameManager : NetworkBehaviour {
 			m_instance = this;
 		}
 		DontDestroyOnLoad(this.gameObject);
-		m_sm.InitStates();
+		if (m_sm != null) {
+			m_sm.InitStates();
+		}
 	}
 
 	void Start() {
@@ -37,7 +40,9 @@ public class GameManager : NetworkBehaviour {
 			}
 			PlayerPrefs.DeleteKey("GameWon");
 		} else {
-			ChangeStates(m_sm.m_gameStates[(int)GameStates_enum.INTRO]);
+			if (m_sm != null) {
+				ChangeStates(m_sm.m_gameStates[(int)GameStates_enum.INTRO]);
+			}
 		}
 	}
 
