@@ -9,16 +9,14 @@ public class StateGameLost : GameState {
 	public StateGameLost(GameManager gm):base(gm) { }
 
 	public override void Enter() {
-		m_countDown = 5f;
+		m_state.SetActive(true);
 	}
 
 	public override void Execute() {
-		if (m_countDown <= 0 ) {
 
-		} else {
-			m_countDown -= Time.deltaTime;
-		}
 	}
 
-	public override void Exit() { }
+	public override void Exit() {
+		m_state.SetActive(false);
+	 }
 }

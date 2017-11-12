@@ -17,15 +17,13 @@ public class GameManager : NetworkBehaviour {
 	public Player_updated[] m_players = new Player_updated[2]; 
 
 	void Awake () {
-		PlayerPrefs.DeleteKey("GameWon");
-//		PlayerPrefs.DeleteAll();
 		if (m_instance != null && m_instance != this) {
 			Destroy(this.gameObject);
 			return;
 		} else {
 			m_instance = this;
 		}
-		DontDestroyOnLoad(this.gameObject);
+//		DontDestroyOnLoad(this.gameObject);
 		if (m_sm != null) {
 			m_sm.InitStates();
 		}
@@ -64,14 +62,29 @@ public class GameManager : NetworkBehaviour {
 	}
 
 	public void StartGame() {
-		SceneManager.LoadSceneAsync(1,LoadSceneMode.Additive);
+		m_sm.SetInactiveAll();
+		SceneManager.LoadSceneAsync(1,LoadSceneMode.Single);
 	}
 
-	public void SetGameOver() {
+	[Command]
+	public void CmdSetGameOver() {
 		m_isGameOver = true;
 	}
 
 	public void LoadMenu() {
 		SceneManager.LoadSceneAsync(0,LoadSceneMode.Additive);
+	}
+
+	public void ChangeToMenuState() {
+		ChangeStates(m_sm.m_gameStates[(int)GameStates_enum.MENU]);
+	}
+
+	public void ClearGameResults() {
+		PlayerPrefs.DeleteKey("GameWon");
+	}
+
+	[Command]
+	public void CmdSetClientLeft() {
+		hasClient = false;
 	}
 }
